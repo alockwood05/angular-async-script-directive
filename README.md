@@ -13,15 +13,14 @@ Load a mini app within an angular app via an angular directive.
 
 
 ## Tech Flow
-##v0
+### Phase 1 POC
 1. Reference the new `async-script` directive
 2. Have the `src` attribute be the script it is getting
 3. inject script via creating a script dom element, 
 
-##phase 2 
+### Phase 2 Cleanup
 - ensure smart caching. 
 - explore passing data into the script from the container application
-
 
 ## Links and resources
 - [async script loading](http://www.html5rocks.com/en/tutorials/speed/script-loading/)
@@ -31,11 +30,11 @@ Load a mini app within an angular app via an angular directive.
 
 
 ---------------------------
----------------------------
+
 
 *Misc
 
-- **New frameworks for me, so bear with me**
+- New frameworks for me, so bear with me
 
   This is my first sandbox for playing with a few different javascript tools.
   I initialized the project with [yo gulp-angular](https://github.com/Swiip/generator-gulp-angular)
@@ -46,7 +45,7 @@ Load a mini app within an angular app via an angular directive.
   The project, in addition to using **angular** and **gulp** is using **require.js** for loading js
   asynch making clean dependency management.  Which I haven't used before.
 
--What I am working with to start
+- What I am working with to start
 
   - Redunant but clear file naiming
     - *main/main.controller.js* naming for the main controller
