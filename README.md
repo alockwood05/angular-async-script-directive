@@ -1,14 +1,15 @@
-# angular-dynamic-modules
-Experimentation with angular to get modules to load on the fly / lazy.
+# angular-async-script-directive
+Experimentation with angular to get mini js apps to load on the fly.  
+Starting off with proof of concept, non-angular apps/javascript bits.  
+
 Writing in here is some thoughts outloud, exuse any typos or incomplete thoughts,
 occassionally the thoughts don't make it all the way to the keyes when I'm
 whipping through a demo project of my own.  Welcome to the playground :).
 
-## What do I want this app to look like?
-The goal of this app is going to be to demonstrate a directive that
-will enable a directive module to be loaded asynch.  This will allow for
-components to be developed and deployed and separately from the main application.
-This architecture will support larger applications that are built in a micro services context.
+
+## Goal
+
+Load a mini app within an angular app via an angular directive.
 
 ## Starting place
 
@@ -55,14 +56,18 @@ and apply the directive to the *lazy* element.
 - allow passing in of variables
 
 ## Tech Flow
+##v0
+1. Reference the new `async-script` directive
+2. Have the `src` attribute be the script it is getting
+3. inject script via creating a script dom element, 
 
-1. define `lazy` directive
-2. lazy directive would check for the directive whcih will (for now) be the tag name
-3. if already loaded would do nothing and let angular handle the directive as normal
-4. Lazy would pint an endpoint to get the directive module, register it and compile the directive
+##phase 2 
+- ensure smart caching. 
+- explore passing data into the script from the container application
+
 
 ## Links and resources
-
+- [async script loading](http://www.html5rocks.com/en/tutorials/speed/script-loading/)
 - [Ben Nadel's post about lazy loading apps](http://www.bennadel.com/blog/2553-loading-angularjs-components-after-your-application-has-been-bootstrapped.htm)
 - [IFY I/O blog: Lazy Loading In AngularJS](http://ify.io/lazy-loading-in-angularjs/)
 
