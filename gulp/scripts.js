@@ -50,8 +50,41 @@ function webpackWrapper(watch, test, callback) {
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app')));
 }
 
+/**
+ * @todo: factor a common buildWebPackWrapper(fileName) or the like to remove duplicate code
+ */
+function webpackWrapForScript(scriptName) {
+  var webpackOptions = {
+    watch: false,
+    module: {
+      preLoaders: [{ test: /\.js$/, exclude: /node_modules/, loader: 'eslint-loader'}],
+      loaders: [{ test: /\.js$/, exclude: /node_modules/, loaders: ['ng-annotate', 'babel-loader']}]
+    },
+    output: { filename: scriptName }
+  };
+
+  var webpackChangeHandler = function(err, stats) {
+    if(err) {
+      conf.errorHandler('Webpack')(err);
+    }
+    $.util.log(stats.toString({
+      colors: $.util.colors.supportsColor,
+      chunks: false,
+      hash: false,
+      version: false
+    }));
+    browserSync.reload();
+  };
+  var sources = [ path.join(conf.paths.src, '/app/' + scriptName) ];
+
+  return gulp.src(sources)
+    .pipe(webpack(webpackOptions, null, webpackChangeHandler))
+    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app')));
+}
+
 gulp.task('scripts', function () {
-  return webpackWrapper(false, false);
+  webpackWrapForScript('testScript.js');
+  return webpackWrapper(false, false)
 });
 
 gulp.task('scripts:watch', ['scripts'], function (callback) {

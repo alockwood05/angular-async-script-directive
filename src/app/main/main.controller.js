@@ -6,8 +6,14 @@ export class MainController {
     this.classAnimation = '';
     this.creationDate = 1446842030034;
     this.toastr = toastr;
-
     this.activate($timeout, webDevTec);
+
+    // for asyncScript directive inputs
+    this.src = 'app/testScript.js';
+    this.done = function (script, textStatus) {
+      console.log('script loaded', script, textStatus);
+    };
+    this.fail = function () { console.log('error', arguments); };
   }
 
   activate($timeout, webDevTec) {

@@ -1,5 +1,5 @@
 describe('service webDevTec', () => {
-  beforeEach(angular.mock.module('angularDynamicModules'));
+  beforeEach(angular.mock.module('angularAsyncScript'));
 
   it('should be registered', inject(webDevTec => {
     expect(webDevTec).not.toEqual(null);

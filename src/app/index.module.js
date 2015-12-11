@@ -4,12 +4,15 @@ import { config } from './index.config';
 import { routerConfig, RouterController } from './index.route';
 import { runBlock } from './index.run';
 import { MainController } from './main/main.controller';
-import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
+import { GithubContributorService } from
+  '../app/components/githubContributor/githubContributor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
+import { AsyncScriptDirective } from '../app/asyncScript/asyncScript.directive';
 
-angular.module('angularDynamicModules', ['ngAnimate', 'ngNewRouter', 'toastr'])
+angular.module('angularAsyncScript', ['ngAnimate', 'ngNewRouter', 'toastr'])
+  .directive('asyncScript', AsyncScriptDirective)
   .constant('malarkey', malarkey)
   .constant('moment', moment)
   .config(config)

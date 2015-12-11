@@ -23,7 +23,7 @@
     <div class="large-12 large-text-center columns">
       <div class="panel">
         <h1>Testing THe directive here</h1>
-        <async-script src="app/testScript.js" done="main.done" fail="main.fail" />
+        <async-script src="{{main.src}}" done="main.done" fail="main.fail" />
       </div>
     </div>
   </div>
